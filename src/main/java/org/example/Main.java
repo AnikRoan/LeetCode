@@ -8,11 +8,11 @@ import java.util.Map;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        System.out.println(romanToInt("CLIX"));
+        System.out.println(longestCommonPrefix(new String []{"flower","flow","flight"}));
 
     }
 
-//task 14
+
 public static int romanToInt(String s) {
         HashMap<Character, Integer> roman = new HashMap<>();
         roman.put('I', 1);
@@ -38,6 +38,27 @@ public static int romanToInt(String s) {
 
         return result;
     }
+
+    //14. Longest Common Prefix
+    public static String longestCommonPrefix(String[] strs) {
+        if(strs.length==0){
+            return "";
+        }
+        String prefix = strs[0];
+        for(int i=0;i< strs.length;i++){
+            while(strs[i].indexOf(prefix)!=0){
+                prefix = prefix.substring(0,prefix.length()-1);
+                if(prefix.isEmpty()){
+                    return "";
+                }
+            }
+        }
+        return prefix;
+
+
+    }
+
+
 
 
 }
